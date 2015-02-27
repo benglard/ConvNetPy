@@ -1,0 +1,7 @@
+import cv2, numpy
+w = numpy.array(aug.w, dtype=numpy.float64).reshape(24, 24)
+dw = numpy.array(aug.dw, dtype=numpy.float64).reshape(24, 24)
+cv2.imshow('W', w)
+cv2.imshow('DW', dw)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
