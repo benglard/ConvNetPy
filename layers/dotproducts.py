@@ -35,7 +35,7 @@ class ConvLayer(object):
         self.layer_type = 'conv'
 
         bias = getopt(opt, 'bias_pref', 0.0)
-        self.filters = [ Vol(self.sx, self.sx, self.in_depth) for i in xrange(self.out_depth) ]
+        self.filters = [ Vol(self.sx, self.sy, self.in_depth) for i in xrange(self.out_depth) ]
         self.biases = Vol(1, 1, self.out_depth, bias)
 
     def forward(self, V, is_training):
@@ -191,7 +191,7 @@ class FullyConnectedLayer(object):
         for i in xrange(self.out_depth):
             sum_a = 0.0
             fiw = self.filters[i].w
-            for d in xrange(self.num_inputs):
+            for d in xrange(self0sv.num_inputs):
                 sum_a += Vw[d] * fiw[d]
             sum_a += self.biases.w[i]
             A.w[i] = sum_a
